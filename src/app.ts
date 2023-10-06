@@ -1,18 +1,12 @@
-import express, { Express } from 'express';
-import cors from 'cors';
-import { connectDb, disconnectDB } from 'config';
-
+import express from "express";
+import cors from 'cors'
+import router from "./routers/index";
 
 const app = express();
 
-
-export function init(): Promise<Express> {
-  connectDb();
-  return Promise.resolve(app);
-}
-
-export async function close(): Promise<void> {
-  await disconnectDB();
-}
+app
+  .use(cors())
+  .use(express.json())
+  .use(router);
 
 export default app;
