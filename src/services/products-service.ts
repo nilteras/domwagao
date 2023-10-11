@@ -8,13 +8,26 @@ async function getAllProducts(){
 }
 
 async function CreateNewProduct(params: CreateProduct){
-    const productData = params;
-    const newProduct = await productsRepository.createProductDB(productData);
+    const newProduct = await productsRepository.createProductDB(params);
 
     return newProduct;
 }
 
+async function updateProduct(id: number, params: CreateProduct){
+    const productUpdated = await productsRepository.uodateProductDB(id, params);
+
+    return productUpdated;
+}
+
+async function deleteProduct(id: number){
+    const productDeleted = await productsRepository.deleteProductDB(id);
+
+    return productDeleted;
+}
+
 export const productsService = {
     getAllProducts,
-    CreateNewProduct
+    CreateNewProduct,
+    updateProduct,
+    deleteProduct
 }
