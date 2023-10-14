@@ -11,6 +11,7 @@
     "nodemon": "^3.0.1",
     "prisma": "^5.4.1",
     "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2",
     "typescript-transform-paths": "^3.4.6"
@@ -79,6 +80,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
+    "build": "tsc && tsc-alias",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.ts"
   },
