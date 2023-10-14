@@ -7,6 +7,13 @@ async function getAllProducts(){
     return resultProducts;
 }
 
+async function getProductById(id: number){
+    const resultProduct = await productsRepository.getProductByIdDB(id);
+
+    return resultProduct;
+}
+
+
 async function CreateNewProduct(params: CreateProduct){
     const newProduct = await productsRepository.createProductDB(params);
 
@@ -29,5 +36,6 @@ export const productsService = {
     getAllProducts,
     CreateNewProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getProductById
 }

@@ -7,6 +7,12 @@ export async function getAllProducts(req: Request, res: Response){
     return res.status(httpStatus.OK).send(productsData);
 }
 
+export async function getProductById(req: Request, res: Response){
+    const {id} = req.params
+    const productData = await productsService.getProductById(Number(id));
+    return res.status(httpStatus.OK).send(productData);
+}
+
 export async function postProduct(req: Request, res: Response){
     const { description, price, id_category, quantity } = req.body;
     const result = await productsService.CreateNewProduct({ description, price, id_category, quantity });

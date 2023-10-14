@@ -16,6 +16,15 @@ async function getAllProductsDB() {
     return result;
 }
 
+async function getProductByIdDB(id: number){
+    const result = await prisma.products.findUnique({
+        where: {
+            id
+        }
+    });
+    return result
+}
+
 async function uodateProductDB(id: number, product: CreateProduct) {
     const {description,price,id_category,quantity} = product
     const result = prisma.products.update({
@@ -45,5 +54,6 @@ export const productsRepository = {
     createProductDB,
     getAllProductsDB,
     uodateProductDB,
-    deleteProductDB
+    deleteProductDB,
+    getProductByIdDB
 }
